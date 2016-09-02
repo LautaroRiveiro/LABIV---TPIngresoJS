@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="FerreteApp">
 	<head>
 		<meta charset="utf-8">
 		<title>Curso Ingreso UTN FRA</title>
@@ -10,18 +10,19 @@
 		<!--final de Estilos-->
 
 		<!--Lógica-Programación-->
-		<script type="text/javascript" src="jsFerretePinturas.js"></script>
+		<script type="text/javascript" src="../angular.min.js"></script>
+        <script type="text/javascript" src="jsFerretePinturas.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body>
+	<body ng-controller="FerreteController">
 		<div class="CajaUno animated bounceInDown">
 			
 		
 			<form id="FormIngreso">
 
-				<input type="text"  placeholder="Ingrese Temparatura" id="Temperatura">
+				<input type="text"  placeholder="Ingrese Temparatura" name="Temperatura" id="Temperatura" ng-model="temperaturaIngresada">
 	
 				<br>
 				
@@ -31,8 +32,8 @@
 		<div class="CajaUno animated bounceInLeft">
 			
 			
-			<button  class="MiBotonUTN" onclick="FahrenheitCentigrados()" >A- de Fahrenheit a Centígrados </button>
-			<button  class="MiBotonUTN" onclick="CentigradosFahrenheit()" >B- de Centígrados a Fahrenheit</button>
+			<button  class="MiBotonUTN" ng-click="FahrenheitCentigrados()" ng-disabled='temperaturaIngresada==null || temperaturaIngresada==""'>A- de Fahrenheit a Centígrados </button>
+			<button  class="MiBotonUTN" ng-click="CentigradosFahrenheit()" ng-disabled='temperaturaIngresada==null || temperaturaIngresada==""'>B- de Centígrados a Fahrenheit</button>
 			
 
 		</div>
